@@ -65,7 +65,15 @@ describe('ct-lab07 routes', () => {
     const res = await request(app)
       .put('/api/v1/randococktail/1')
       .send({ newFav: 'Dirrrty Martini' });
-    expect(res.body).toEqual({ favDrink: "Dirrrty Martini", id: "1", phoneNumber: "+19376090603", userName: "Katrina" });
+    expect(res.body).toEqual({ favDrink: 'Dirrrty Martini', id: '1', phoneNumber: '+19376090603', userName: 'Katrina' });
+    expect(twilio.sendSms).toHaveBeenCalledTimes(3);
+  });
+
+  it('deletes a users account', async () => {
+    await UserService.create({ userName: 'Katrina', favDrink: 'Moscow Mule', phoneNumber: '9376090603' });
+    const res = await request(app)
+      .delete('/api/v1/randococktail/1');
+    expect(res.body).toEqual({ favDrink: 'Moscow Mule', id: '1', phoneNumber: '+19376090603', userName: 'Katrina' });
     expect(twilio.sendSms).toHaveBeenCalledTimes(3);
   });
 
