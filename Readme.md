@@ -41,3 +41,9 @@ will use https://www.thecocktaildb.com/api for cocktail recipes
     * DELETE (id in params) - delete user 
         * will delete user from DB matching on user id
         * send good bye text
+
+* Utils 
+    *  ~~Twillio~~
+    * ~~get rando drink from cocktailDB~~ 
+    * *maybe* Amazon SES 
+    
