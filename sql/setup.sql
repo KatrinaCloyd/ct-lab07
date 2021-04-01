@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS users: 
+
+CREATE TABLE users(
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
+    user_name TEXT NOT NULL, 
+    phone_number TEXT NOT NULL,
+    fav_drink TEXT NOT NULL
+)
