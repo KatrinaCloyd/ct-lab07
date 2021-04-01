@@ -26,10 +26,11 @@ Create an DB of users who sign up with their name, phone number, and favorite dr
 will use https://www.thecocktaildb.com/api for cocktail recipes 
 
 * ENDPOINTS 
-    * POST - initial set up of new user in DB
+    * XXXXX POST - initial set up of new user in DB
         * add user to DB 
         * hit the cocktail api to get random cocktail 
-        * send a welcome text with their current fav and their first random cocktail 
+        * send a welcome text with their current fav drink
+        * send their first random cocktail text
     * GET - new random cocktail 
         * hit the cocktail api to get random cocktail 
         * send new random cocktail recipe text 
