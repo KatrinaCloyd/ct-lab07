@@ -23,6 +23,8 @@ You should have some interaction to put in your service. Some examples:
 ### PLAN
 Create an DB of users who sign up with their name, phone number, and favorite drink. Then they get random cocktail suggestions by making a get request. They can also change their favorite drink if one of our suggestions has beaten out their previous favorite. 
 
+will use https://www.thecocktaildb.com/api for cocktail recipes 
+
 * ENDPOINTS 
     * POST - initial set up of new user in DB
         * add user to DB 
