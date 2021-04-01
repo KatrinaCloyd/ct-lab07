@@ -31,11 +31,11 @@ will use https://www.thecocktaildb.com/api for cocktail recipes
         * hit the cocktail api to get random cocktail 
         * send a welcome text with their current fav drink
         * send their first random cocktail text
-    * GET - new random cocktail 
+    * XXXXX GET by ID (id in params) - new random cocktail 
         * hit the cocktail api to get random cocktail 
-        * send new random cocktail recipe text 
-    * GET by ID (id in params) - user info by id 
-        * will get a specific user account by id 
+        * send new random cocktail recipe text to user
+    * GET all users -
+        * will get all users and return as an array  
     * PUT (send new favorite) - update users fav cocktail 
         * Update users favorite cocktail to whatever they send by matching on user id
         * Send new favorite cocktail confirmation text 
@@ -44,7 +44,7 @@ will use https://www.thecocktaildb.com/api for cocktail recipes
         * send good bye text
 
 * Utils 
-    *  ~~Twillio~~
+    * ~~Twillio~~
     * ~~get rando drink from cocktailDB~~ 
     * *maybe* Amazon SES 
     

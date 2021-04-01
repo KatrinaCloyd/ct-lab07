@@ -32,6 +32,26 @@ describe('ct-lab07 routes', () => {
     });
   });
 
+  it('gets all users', async () => {
+    await UserService.create({ userName: 'Katrina', favDrink: 'Moscow Mule', phoneNumber: '9376090603' });
+    await UserService.create({ userName: 'Booger', favDrink: 'Old Fashioned', phoneNumber: '9376090603' });
+    const expectation = [
+      {
+        id: expect.any(String),
+        userName: 'Katrina',
+        favDrink: 'Moscow Mule',
+        phoneNumber: '+19376090603'
+      }, {
+        id: expect.any(String),
+        userName: 'Booger',
+        favDrink: 'Old Fashioned',
+        phoneNumber: '+19376090603'
+      }]
+    const res = await request(app)
+      .get('/api/v1/randococktail');
+    expect(res.body).toEqual(expectation);
+  });
+
   it('gets new random cocktail and sends to user making the request', async () => {
     await UserService.create({ userName: 'Katrina', favDrink: 'Moscow Mule', phoneNumber: '9376090603' });
     const res = await request(app)
