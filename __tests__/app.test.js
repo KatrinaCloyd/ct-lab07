@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const UserService = require('../lib/services/UserService');
 
 jest.mock('../lib/utils/twilio');
 const twilio = require('../lib/utils/twilio');
@@ -14,6 +15,7 @@ jest.mock('twilio', () => () => ({
 
 describe('ct-lab07 routes', () => {
   beforeEach(() => {
+    twilio.sendSms.mockReset();
     return setup(pool);
   });
 
@@ -28,6 +30,14 @@ describe('ct-lab07 routes', () => {
       favDrink: 'Moscow Mule',
       phoneNumber: '+19376090603',
     });
+  });
+
+  it('gets new random cocktail and sends to user making the request', async () => {
+    await UserService.create({ userName: 'Katrina', favDrink: 'Moscow Mule', phoneNumber: '9376090603' });
+    const res = await request(app)
+      .get('/api/v1/randococktail/1');
+    expect(twilio.sendSms).toHaveBeenCalledTimes(3);
+    expect(res.text).toEqual('done');
   });
 
 });
