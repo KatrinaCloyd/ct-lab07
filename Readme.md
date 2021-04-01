@@ -34,7 +34,7 @@ will use https://www.thecocktaildb.com/api for cocktail recipes
     * XXXXX GET by ID (id in params) - new random cocktail 
         * hit the cocktail api to get random cocktail 
         * send new random cocktail recipe text to user
-    * GET all users -
+    * XXXXX GET all users -
         * will get all users and return as an array  
     * PUT (send new favorite) - update users fav cocktail 
         * Update users favorite cocktail to whatever they send by matching on user id
