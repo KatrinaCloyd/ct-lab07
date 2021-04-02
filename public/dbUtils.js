@@ -7,7 +7,7 @@ export async function dbPOSTuser(userName, favDrink, phoneNumber) {
 
 export async function getAllUsers() {
     const res = await request(app)
-        .post('/api/v1/randococktail');
+        .get('/api/v1/randococktail');
     return res.body;
 }
 
