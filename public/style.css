@@ -1,0 +1,15 @@
+body{
+    margin: 0px;
+}
+
+main{
+    margin: 20px;
+}
+
+header{
+    background-color: #D6D6D6;
+    height: 165px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

@@ -59,5 +59,5 @@ will use https://www.thecocktaildb.com/api for cocktail recipes
         - button to get new cocktail recipe texted to them (GET /:id)
         - button and field to update current favorite cocktail (PUT /:id)
         - button to show all other users favroite drinks (GET) will only show name and fav, no phone numbers
-        - button to delete account (DELETE /: id)
+        - button to delete account (DELETE /:id)
     
