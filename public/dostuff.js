@@ -57,6 +57,7 @@ const userFavList = document.getElementById('allUserFavsList');
 
 const appendFavs = (user) => {
     const p = document.createElement('p');
+    p.classList = 'fav';
     p.textContent = `${user.userName}'s Favorite Drink: ${user.favDrink}`;
     userFavList.appendChild(p);
 };
