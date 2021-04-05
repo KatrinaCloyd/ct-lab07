@@ -11,6 +11,7 @@ fav.textContent = `You can update your favorite drink from ${user.favDrink} to s
 
 // sendNewDrinkBtn will get (GET /:id) 
 const newDrinkBtn = document.getElementById('sendNewDrinkBtn');
+const holdMsg = document.getElementById('hold');
 
 newDrinkBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -21,6 +22,8 @@ newDrinkBtn.addEventListener('click', (event) => {
             'Content-Type': 'application/json',
         },
     })
+    holdMsg.textContent = 'One moment please your new drink is on the way!'
+    setTimeout(() => { holdMsg.textContent = '' }, 7000);
 });
 
 // newFavBtn will hit (PUT /:) from url and get input from field to send as new drink
@@ -43,9 +46,8 @@ newFavBtn.addEventListener('click', (event) => {
     })
 
         .then((res) => res.json())
-        // save new returned user info to local storage 
         .then((json) => localStorage.setItem('user', JSON.stringify(json)))
-        .then(window.location.reload());
+        .then((blah) => window.location.reload());
 
     // append new lines with new user fav
 });
