@@ -15,39 +15,40 @@
     </header>
 
     <main>
-        <p id='welcome'>Welcome (username)!</p>
+        <p id="welcome">Welcome (username)!</p>
         <p>You can do all kinds of things here!</p>
-        <form class='sendNewDrink'>
+        <form>
             <label>
                 <span>You can request a new random cocktail recipe be texted to you!</span>
             </label><br>
-            <button id='sendNewDrinkBtn'>teXt Me A nEW rAndO-dRinK!</button>
+            <button id="sendNewDrinkBtn">teXt Me A nEW rAndO-dRinK!</button>
         </form>
         <br><br>
-        <form class='updateFav'>
+        <form id="updateFav">
             <label>
-                <span id='favInfo'>You can update your favorite drink from (userFav) to something new if you have found
-                    a new
-                    favorite!</span>
+                <span id="favInfo">You can update your favorite drink from (userFav) to something new if you have found
+                    a new favorite!</span>
+                <br>
+                <input name="newFav">
             </label><br>
-            <button id='newFavBtn'>UpDAte favOriTE!</button>
+            <button id="newFavBtn">UpDAte favOriTE!</button>
         </form>
         <br><br>
-        <form class='userFavs'>
+        <form>
             <label>
-                <span>You can see other users' favorite drinks for inspiration!</span>
+                <span>You can see other users" favorite drinks for inspiration!</span>
             </label><br>
-            <button id='getUserFavsBtn'>gEt User fAVs!</button>
+            <button id="getUserFavsBtn">gEt User fAVs!</button>
         </form>
 
         <br><br>
-        <form class='deleteUser'>
+        <form>
             <label>
                 <span>You can (if you really want to) delete your account with us.</span>
             </label><br>
-            <button id='deleteUserBtn'>deleTe aCcoUNt :( </button>
+            <button id="deleteUserBtn">deleTe aCcoUNt :( </button>
         </form>
-        <div id='allUserFavsList'></div>
+        <div id="allUserFavsList"></div>
 
     </main>
     <script type="module" src="./dostuff.js"></script>

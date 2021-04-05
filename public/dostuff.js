@@ -24,11 +24,36 @@ newDrinkBtn.addEventListener('click', (event) => {
 });
 
 // newFavBtn will hit (PUT /:) from url and get input from field to send as new drink
-// save new returned user info to local strage 
-// refresh page with updated user info
+const newFavBtn = document.getElementById('newFavBtn');
+const form = document.getElementById('updateFav');
+
+
+
+newFavBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    const fd = new FormData(form);
+    const newFavorite = fd.get('newFav')
+
+    fetch(`/api/v1/randococktail/${user.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ newFav: newFavorite }),
+    })
+
+        .then((res) => res.json())
+        // save new returned user info to local storage 
+        .then((json) => localStorage.setItem('user', JSON.stringify(json)))
+        .then(window.location.reload());
+
+    // append new lines with new user fav
+});
+
 
 //getUserFavsBtn will hit (GET) all and show all users name & fav in a table
 //will need to map through returned array and append table to page in empty div allUserFavsList
+//LOOK AT RYANS SCREENSHOTS OF HOW HE WE APPENDING LI's 
 
 //deleteUserBtn will hit (DELETE /:id)
 //will append "your account has been removed" line to page with timeout 
