@@ -30,12 +30,10 @@ newDrinkBtn.addEventListener('click', (event) => {
 const newFavBtn = document.getElementById('newFavBtn');
 const form = document.getElementById('updateFav');
 
-
-
 newFavBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const fd = new FormData(form);
-    const newFavorite = fd.get('newFav')
+    const newFavorite = fd.get('newFav');
 
     fetch(`/api/v1/randococktail/${user.id}`, {
         method: 'PUT',
@@ -44,19 +42,40 @@ newFavBtn.addEventListener('click', (event) => {
         },
         body: JSON.stringify({ newFav: newFavorite }),
     })
-
         .then((res) => res.json())
         .then((json) => localStorage.setItem('user', JSON.stringify(json)))
+        // upadte text with new user fav
         .then((blah) => window.location.reload());
-
-    // append new lines with new user fav
 });
 
 
 //getUserFavsBtn will hit (GET) all and show all users name & fav in a table
+
 //will need to map through returned array and append table to page in empty div allUserFavsList
-//LOOK AT RYANS SCREENSHOTS OF HOW HE WE APPENDING LI's 
+const showUserFavsBtn = document.getElementById('getUserFavsBtn');
+const userFavList = document.getElementById('allUserFavsList');
+
+const appendFavs = (user) => {
+    const p = document.createElement('p');
+    p.textContent = `${user.userName}'s Favorite Drink: ${user.favDrink}`;
+    userFavList.appendChild(p);
+};
+
+showUserFavsBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    fetch(`/api/v1/randococktail/`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((res) => res.json())
+        .then((users) => { users.forEach(appendFavs) });
+
+});
 
 //deleteUserBtn will hit (DELETE /:id)
 //will append "your account has been removed" line to page with timeout 
 //then redirect to home page to sign in 
+
