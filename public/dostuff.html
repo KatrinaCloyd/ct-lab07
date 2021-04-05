@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>rAndO-dRinK</title>
+</head>
+
+<body>
+    <header>
+        <h1>rAndO-dRinK reCiPe</h1>
+    </header>
+
+    <main>
+        <p id="welcome">Welcome (username)!</p>
+        <p>You can do all kinds of things here!</p>
+        <form>
+            <label>
+                <span>You can request a new random cocktail recipe be texted to you!</span>
+            </label><br>
+            <button id="sendNewDrinkBtn">teXt Me A nEW rAndO-dRinK!</button>
+            <span id='hold'></span>
+        </form>
+        <br><br>
+        <form id="updateFav">
+            <label>
+                <span id="favInfo">You can update your favorite drink from (userFav) to something new if you have found
+                    a new favorite!</span>
+                <br>
+                <input name="newFav">
+            </label><button id="newFavBtn">UpDAte favOriTE!</button>
+        </form>
+        <br><br>
+        <form>
+            <label>
+                <span>You can see other users' favorite drinks for inspiration!</span>
+            </label><br>
+            <button id="getUserFavsBtn">gEt User fAVs!</button>
+        </form>
+        <div id="allUserFavsList"></div>
+        <br><br>
+        <form>
+            <label>
+                <span>You can (if you really want to) delete your account with us.</span>
+            </label><br>
+            <button id="deleteUserBtn">deleTe aCcoUNt :( </button>
+            <span id='byebye'></span>
+        </form>
+
+    </main>
+    <script type="module" src="./dostuff.js"></script>
+</body>
+
+</html>
