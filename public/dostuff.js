@@ -78,4 +78,23 @@ showUserFavsBtn.addEventListener('click', (event) => {
 //deleteUserBtn will hit (DELETE /:id)
 //will append "your account has been removed" line to page with timeout 
 //then redirect to home page to sign in 
+const deleteAcctBtn = document.getElementById('deleteUserBtn');
+const byebye = document.getElementById('byebye');
+
+deleteAcctBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    fetch(`/api/v1/randococktail/${user.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((res) => res.json())
+        .then((json) => localStorage.setItem('user', JSON.stringify(json)));
+
+    byebye.textContent = 'We are sorry to see you go. You will receive one last text to confirm that your account has been deleted.'
+    setTimeout(() => { window.location = './index.html' }, 5000);
+});
+
 
